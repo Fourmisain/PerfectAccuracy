@@ -1,0 +1,21 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "fourmisain.perfectaccuracy.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"BowItemMixin",
+		"CrossbowItemMixin",
+		"EggItemMixin",
+		"EnderPearlItemMixin",
+		"FishingBobberEntityMixin",
+		"SnowballItemMixin",
+		"ThrowablePotionItemMixin",
+		"TridentItemMixin"
+	],
+	"client": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

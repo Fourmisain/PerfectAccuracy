@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "perfectaccuracy",
+	"version": "${version}",
+	"name": "Perfect Accuracy",
+	"description": "Removes any inaccuracy from projectiles shot / thrown by players, so you can only blame yourself.",
+	"authors": [
+		"Fourmisain"
+	],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/perfect-accuracy",
+		"sources": "https://github.com/Fourmisain/PerfectAccuracy",
+		"issues": "https://github.com/Fourmisain/PerfectAccuracy/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/perfectaccuracy/icon.png",
+	"environment": "*",
+	"entrypoints": {
+	},
+	"mixins": [
+		"prefectaccuracy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.11.1",
+		"minecraft": ">=1.16.2"
+	}
+}
