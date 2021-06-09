@@ -18,7 +18,7 @@
 	"entrypoints": {
 	},
 	"mixins": [
-		"prefectaccuracy.mixins.json"
+		"perfectaccuracy.mixins.json"
 	],
 	"depends": {
 		"fabricloader": "*",
