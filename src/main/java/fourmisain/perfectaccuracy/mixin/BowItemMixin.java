@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(BowItem.class)
-public class BowItemMixin {
+public abstract class BowItemMixin {
 	@ModifyConstant(method = "onStoppedUsing",
 		constant = @Constant(floatValue = 1.0F, ordinal = 0))
 	public float modifyDivergence(float divergence) {

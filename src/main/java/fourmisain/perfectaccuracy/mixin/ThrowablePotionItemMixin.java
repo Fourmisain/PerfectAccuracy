@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(ThrowablePotionItem.class)
-public class ThrowablePotionItemMixin {
+public abstract class ThrowablePotionItemMixin {
 	@ModifyConstant(method = "use",
 		constant = @Constant(floatValue = 1.0F, ordinal = 0))
 	public float modifyDivergence(float divergence) {

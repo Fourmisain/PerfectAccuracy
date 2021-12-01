@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(SnowballItem.class)
-public class SnowballItemMixin {
+public abstract class SnowballItemMixin {
 	@ModifyConstant(method = "use",
 		constant = @Constant(floatValue = 1.0F, ordinal = 0))
 	public float modifyDivergence(float divergence) {
