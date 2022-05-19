@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(FishingBobberEntity.class)
 public abstract class FishingBobberEntityMixin {
 	@ModifyConstant(method = "<init>(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;II)V",
-		constant = @Constant(doubleValue = 0.0045D))
-	public double modifyDivergence(double divergence) {
+		constant = @Constant(doubleValue = 0.0103365D))
+	public double modifyVariance(double variance) {
 		return 0D;
 	}
 }
