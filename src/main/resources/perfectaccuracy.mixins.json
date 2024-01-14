@@ -2,7 +2,7 @@
 	"required": true,
 	"minVersion": "0.8",
 	"package": "io.github.fourmisain.perfectaccuracy.mixin",
-	"compatibilityLevel": "JAVA_8",
+	"compatibilityLevel": "JAVA_${java_version}",
 	"mixins": [
 		"BowItemMixin",
 		"CrossbowItemMixin",
@@ -12,8 +12,6 @@
 		"SnowballItemMixin",
 		"ThrowablePotionItemMixin",
 		"TridentItemMixin"
-	],
-	"client": [
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
-	"id": "perfectaccuracy",
-	"version": "${version}",
+	"id": "${mod_id}",
+	"version": "${mod_version}",
 	"name": "Perfect Accuracy",
 	"description": "Removes any inaccuracy from projectiles shot / thrown by players, so you can only blame yourself.",
 	"authors": [
@@ -13,15 +13,15 @@
 		"issues": "https://github.com/Fourmisain/PerfectAccuracy/issues"
 	},
 	"license": "MIT",
-	"icon": "assets/perfectaccuracy/icon.png",
+	"icon": "assets/${mod_id}/icon.png",
 	"environment": "*",
 	"entrypoints": {
 	},
 	"mixins": [
-		"perfectaccuracy.mixins.json"
+		"${mod_id}.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.6",
-		"minecraft": ">=1.19.0"
+		"fabricloader": "${loader_version_range}",
+		"minecraft": "${game_version_range}"
 	}
 }

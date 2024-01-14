@@ -1,13 +1,14 @@
 plugins {
-	id 'fabric-loom' version '0.12-SNAPSHOT'
+	id 'fabric-loom' version '1.5-SNAPSHOT'
 	id 'maven-publish'
 }
 
-targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version + '-' + project.minecraft_version
 group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -16,10 +17,16 @@ dependencies {
 }
 
 processResources {
-	inputs.property "version", project.version
+	// expand all properties from gradle.properties
+	def stringProperties = providers.gradlePropertiesPrefixedBy('').get()
+	stringProperties.each { inputs.property(it.key, it.value) }
 
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+	['fabric.mod.json', "${project.mod_id}.mixins.json"].each {
+		filesMatching(it) {
+			expand(stringProperties) {
+				escapeBackslash = true
+			}
+		}
 	}
 }
 
@@ -28,12 +35,13 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
+	targetCompatibility = sourceCompatibility = project.java_version as Integer
 	withSourcesJar()
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
@@ -42,11 +50,5 @@ publishing {
 		mavenJava(MavenPublication) {
 			from components.java
 		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// mavenLocal()
 	}
 }
