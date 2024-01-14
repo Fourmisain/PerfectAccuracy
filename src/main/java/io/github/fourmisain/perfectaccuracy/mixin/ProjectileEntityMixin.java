@@ -12,11 +12,11 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(ProjectileEntity.class)
 public abstract class ProjectileEntityMixin {
 	@Shadow @Nullable
-	private Entity owner;
+	public abstract Entity getOwner();
 
 	@ModifyVariable(method = "setVelocity(DDDFF)V", at = @At("HEAD"), ordinal = 1, argsOnly = true)
 	public float removeDivergenceForPlayers(float divergence) {
-		if (owner instanceof PlayerEntity) return 0;
+		if (getOwner() instanceof PlayerEntity) return 0;
 		return divergence;
 	}
 }
