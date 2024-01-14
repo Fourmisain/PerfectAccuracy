@@ -4,14 +4,8 @@
 	"package": "io.github.fourmisain.perfectaccuracy.mixin",
 	"compatibilityLevel": "JAVA_${java_version}",
 	"mixins": [
-		"BowItemMixin",
-		"CrossbowItemMixin",
-		"EggItemMixin",
-		"EnderPearlItemMixin",
 		"FishingBobberEntityMixin",
-		"SnowballItemMixin",
-		"ThrowablePotionItemMixin",
-		"TridentItemMixin"
+		"ProjectileEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
