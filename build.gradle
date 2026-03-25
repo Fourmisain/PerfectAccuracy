@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.15-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -21,17 +21,15 @@ processResources {
 	def stringProperties = providers.gradlePropertiesPrefixedBy('').get()
 	stringProperties.each { inputs.property(it.key, it.value) }
 
-	['fabric.mod.json', "${project.mod_id}.mixins.json"].each {
-		filesMatching(it) {
-			expand(stringProperties) {
-				escapeBackslash = true
-			}
+	filesMatching(['*.mod.json', '*.mixins.json']) {
+		expand(stringProperties) {
+			escapeBackslash = true
 		}
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 8
+	it.options.release = project.java_version as Integer
 }
 
 java {
@@ -41,7 +39,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
+		rename { "${it}_${inputs.properties.archivesName}" }
 	}
 }
 
